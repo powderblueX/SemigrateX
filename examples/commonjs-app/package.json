@@ -1,0 +1,6 @@
+{
+  "name": "semigratex-example-commonjs",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs"
+}

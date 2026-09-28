@@ -1,0 +1,19 @@
+{
+  "name": "@semigratex/core",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "description": "Migration planning primitives for SemigrateX",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": ["dist", "README.md"],
+  "engines": { "node": ">=22.19.0" },
+  "dependencies": {
+    "typescript": "^5.9.3"
+  }
+}

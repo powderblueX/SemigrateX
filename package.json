@@ -1,0 +1,22 @@
+{
+  "name": "semigratex-workspace",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "packageManager": "pnpm@11.7.0",
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "scripts": {
+    "build": "pnpm exec tsc -p packages/core/tsconfig.json && pnpm exec tsc -p packages/cli/tsconfig.json",
+    "typecheck": "pnpm run build",
+    "test": "pnpm run build && node --experimental-test-isolation=none --test packages/core/test/*.test.mjs packages/cli/test/*.test.mjs",
+    "check": "pnpm run test && git diff --check && git diff --cached --check",
+    "plan:example": "node packages/cli/dist/cli.js plan examples/commonjs-app"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.9.3"
+  }
+}

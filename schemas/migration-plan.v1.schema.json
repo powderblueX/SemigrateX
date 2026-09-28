@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/powderblueX/SemigrateX/blob/main/schemas/migration-plan.v1.schema.json",
+  "title": "SemigrateX migration plan version 1",
+  "description": "Read-only syntax findings from a repository migration plan.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "recipe", "repository", "findings", "summary"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "recipe": { "const": "commonjs-to-esm" },
+    "repository": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["root", "scannedFiles"],
+      "properties": {
+        "root": { "type": "string", "minLength": 1 },
+        "scannedFiles": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["kind", "location", "symbol", "action"],
+        "properties": {
+          "kind": {
+            "enum": [
+              "require-call",
+              "module-exports-assignment",
+              "exports-property-assignment",
+              "commonjs-path-global"
+            ]
+          },
+          "location": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["file", "line", "column"],
+            "properties": {
+              "file": { "type": "string", "minLength": 1 },
+              "line": { "type": "integer", "minimum": 1 },
+              "column": { "type": "integer", "minimum": 1 }
+            }
+          },
+          "symbol": { "type": "string", "minLength": 1 },
+          "action": { "const": "manual-review" }
+        }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["totalFindings", "filesWithFindings"],
+      "properties": {
+        "totalFindings": { "type": "integer", "minimum": 0 },
+        "filesWithFindings": { "type": "integer", "minimum": 0 }
+      }
+    }
+  }
+}

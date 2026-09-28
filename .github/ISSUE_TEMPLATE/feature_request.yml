@@ -1,0 +1,24 @@
+name: Migration request
+description: Propose a specific migration recipe or product capability.
+title: "proposal: "
+labels: [enhancement]
+body:
+  - type: input
+    id: source
+    attributes:
+      label: Source version or API
+    validations:
+      required: true
+  - type: input
+    id: target
+    attributes:
+      label: Target version or API
+    validations:
+      required: true
+  - type: textarea
+    id: examples
+    attributes:
+      label: Public examples and desired outcome
+      description: Link affected repositories or upstream migration documentation.
+    validations:
+      required: true

@@ -1,0 +1,4 @@
+# Normalize text in Git while preserving platform-specific launch scripts.
+* text=auto eol=lf
+*.bat text eol=crlf
+*.ps1 text eol=crlf
