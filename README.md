@@ -1,5 +1,7 @@
 # SemigrateX
 
+English | [简体中文](README.zh-CN.md)
+
 SemigrateX is an open-source workbench for repository-scale code migrations. It aims to turn framework upgrades, dependency changes, and API replacements into plans and changes that developers can inspect, resume, and review.
 
 The product uses deterministic analysis and transformations first. Agent assistance is planned for cases where a migration rule cannot decide the correct change from syntax and type information alone. Parallel agents are an execution option for independent work units, not a requirement for using the product.
